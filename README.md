@@ -1,5 +1,5 @@
-Log In Accounts  
-There are pre-made accounts that you can log in to test the app. 
+## Log In Accounts  
+### There are pre-made accounts that you can log in to test the app. 
 * Patients:   
   * User1  
     * Email: user1@example.com
@@ -11,7 +11,8 @@ There are pre-made accounts that you can log in to test the app.
   * Email: expert@example.com
   * Password: 123456
 
-Data Structure & Approach
+
+## Data Structure & Approach
 * Settings Tree  
   * Settings are stored as a JSON tree in Firestore under each patient’s document (patients/{uid}/settingsTree).  
   * The checkboxes tree is then recursively built from objects, where each key is a setting or category, and leaf nodes are booleans.  
@@ -30,7 +31,8 @@ Data Structure & Approach
   * Overall Complexity:  
     * Toggling a checkbox (parent or child) is O(D \+ A × C), where D is the number of descendants and A is the number of ancestors up to the root, each with C children.
 
-Performance Notes & Enhancements
+
+## Performance Notes & Enhancements
 * Parent-child relationships are precomputed for O(1) access during toggling.  
 * Settings are saved to Firestore only when the user logs out or the app goes to the background/inactive state, reducing unnecessary writes.  
 * Lazy Loading:  
