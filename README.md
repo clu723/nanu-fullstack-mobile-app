@@ -25,11 +25,11 @@
   * Precomputed Maps:  
     * The tree structure is indexed with maps (parentMap, byId) for O(1) access to parent and node data, minimizing traversal overhead during toggling.  
   * Descendant Updates:  
-    * When toggling a parent checkbox, the algorithm recursively updates all descendants in O(N) time, where N is the number of descendants. This is achieved by traversing the subtree rooted at the toggled node.  
+    * When toggling a parent node, the algorithm recursively updates all descendants in O(N) time, where N is the number of descendants. This is achieved by traversing the subtree rooted at the toggled node.  
   * Ancestor Updates:  
-    * When toggling a child node, the algorithm “bubbles up” changes to ancestors using the parent map. For each ancestor, it checks the state of all its children in O(C) time per ancestor, where C is the number of children.
+    * When toggling a child node, the algorithm also updates all the ancestors of the node using the parent map. For each ancestor, it checks the state of all its children in O(C) time per ancestor, where C is the number of children.
   * Overall Complexity:  
-    * Toggling a checkbox (parent or child) is O(D \+ A × C), where D is the number of descendants and A is the number of ancestors up to the root, each with C children.
+    * Toggling a node (parent or child) is O(D \+ A × C), where D is the number of descendants and A is the number of ancestors up to the root, each with C children.
 
 
 ## Performance Notes & Enhancements
