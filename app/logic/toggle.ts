@@ -15,7 +15,7 @@ export function recomputeFromChildren(node: TreeNode, checked: CheckboxesMap) {
     return checked[node.id];
 }
 
-export function bubbleAncestors(
+export function updateAncestors(
     startNodeId: string,
     parentMap: Map<string, string | null>,
     byId: Map<string, TreeNode>,
@@ -46,7 +46,7 @@ export function toggleNode(
         copy[node.id] = next;
     }
 
-    // Bubble up so every ancestor = all(children) === true
-    bubbleAncestors(node.id, parentMap, byId, copy);
+    // Update every ancestor if all(children) === true
+    updateAncestors(node.id, parentMap, byId, copy);
     return copy;
 }
